@@ -38,13 +38,20 @@ import asyncio
 实现异步：通过 asycio 定义一个协程，该协程不能直接执行，而是需要通run_until_complete()
 将其加入到 event_loop 事件循环中，并启动循环，这就实现了异步。
 '''
-@asyncio.coroutine
-def consumer():
-    pass
+#定义一个 asyncio 协程
 
-def product():
-    pass
+async def hello():
+    print('Hello World.')
+    await asyncio.sleep(2)
+    print('Hello myself.')
 
+#创建一个 asyncio 事件循环
+loop = asyncio.get_event_loop()
+tasks = [hello() for i in range(10)]
+#将 asyncio 协程加入到 asyncio 事件循环中，并执行
+loop.run_until_complete(asyncio.wait(tasks))
+#关闭事件循环
+loop.close()
 
 
 

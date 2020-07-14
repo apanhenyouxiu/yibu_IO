@@ -10,9 +10,6 @@
 
 注意，在一个子程序中中断，去执行其他子程序，不是函数调用，有点类似CPU的中断。比如子程序A、B：'''
 
-import asyncio
-import time
-
 
 # def A():
 #     print('1')
